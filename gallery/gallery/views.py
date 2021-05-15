@@ -31,3 +31,7 @@ def search_results(request):
       message = "NO ITEMS UNDER CATEGORY " + search.upper()
       categories = Category.objects.all()
       return render(request, 'search.html',{"message":message, "categories": categories})
+  
+  else:
+    message = "You haven't searched for any category"
+    return render(request, 'search.html',{"message":message})

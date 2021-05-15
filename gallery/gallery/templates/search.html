@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{% load static %}
+{% block content %}
+<div class="container-fluid mt-5 text-center">
+  {% if images%}
+    <h2>{{message}}</h2>
+    <div class="content">
+      <div>
+        {% for image in first %}
+        <img class="image img-thumbnail" id={{image.name}} src="{{image.photo.url}}">
+        {%endfor%}
+      </div>
+      <div>
+        {% for image in second %}
+        <img class="image img-thumbnail" id={{image.name}} src="{{image.photo.url}}">
+        {%endfor%}
+      </div>
+      <div>
+        {% for image in third %}
+        <img class="image img-thumbnail" id={{image.name}} src="{{image.photo.url}}">
+        {%endfor%}
+      </div>
+    </div>
+  {%endif%}
+</div>

@@ -1,10 +1,13 @@
-
-  <header class="p-3 bg-dark text-white">
+{% load static %}
+  <header class="p-3 bg-transparent text-white">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <div class="text-end">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <img src="{% static 'img/pic-logo.png' %}" alt="logo" style="padding-bottom: 0 !important;">
+      </a>
+        <div class="navbar-right">
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+          <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
           </form>
         </div>
       </div>
