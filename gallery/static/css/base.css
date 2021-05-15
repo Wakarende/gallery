@@ -13,3 +13,6 @@ img {
   grid-gap: 20px;
   grid-auto-rows: auto;
 }
+.img-thumbnail {
+  cursor: pointer !important;
+}
