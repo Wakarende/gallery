@@ -1,5 +1,5 @@
 *{
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Comfortaa', cursive;
   color: white;
 }
 body{
@@ -24,6 +24,52 @@ img {
   cursor: pointer !important;
 }
 
-h1{
+.img-text{
+  color: black !important;
+}
+
+/* Navbar  */
+.nav-tag{
+  color: white;
+}
+.nav-tag:hover{
   color: #00e6cb;
+}
+.bi-admin{
+  color: white;
+}
+.bi-admin:hover{
+  color: #00e6cb;
+  text-decoration: none;
+}
+.admin{
+  text-decoration: none;
+}
+.search{
+  margin-left: 5px;
+  border-radius: 5px;
+  border: solid 1px #00e6cb;
+}
+.search:hover{
+  background-color: #00e6cb;
+}
+.icon-search{
+  color: #00e6cb;
+}
+
+/* footer  */
+.social{
+  display: flex;
+  flex-direction: column;
+}
+.bi-footer{
+  color: #00e6cb;
+}
+.links{
+  color: #00e6cb;
+  text-decoration: none;
+}
+.links:hover{
+  color: white;
+  text-decoration: #00e6cb underline;
 }

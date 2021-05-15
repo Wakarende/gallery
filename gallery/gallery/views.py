@@ -27,7 +27,7 @@ def search_results(request):
       first = newarr[0]
       second = newarr[1]
       third = newarr[2]
-      message = f"Found {len(images)} image(s) under the category - {search}"
+      message = f"Image(s) under the category {search}"
       return render(request, 'search.html',{"message":message,"images": images,"first": first,"second": second,"third": third})
     except ObjectDoesNotExist:
       message = "NO ITEMS UNDER CATEGORY " + search.upper()

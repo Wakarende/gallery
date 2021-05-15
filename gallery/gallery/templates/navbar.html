@@ -1,16 +1,19 @@
 {% load static %}
-  <header class="p-3 bg-transparent text-white">
+  <header class="p-3 bg-transparent text-white d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <img src="{% static 'img/pic-logo.png' %}" alt="logo" style="width:150px; height:150px;padding-bottom: 0 !important;">
-      </a>
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/admin" class="bi-admin admin"><i class="bi bi-person-circle bi-admin"></i>Admin</a></li>
+        </ul>
         <div class="navbar-right">
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="{% url 'search_results' %}">
           <div class="input-group">
           <input type="text" class="form-control" placeholder="Search By Category" name="category">
           <div class="input-group-btn">
-            <button class="btn btn-transparent" type="submit"><i class="bi bi-search" style="color: white;"></i></button>
+            <button class="btn btn-transparent search" type="submit"><i class="bi bi-search icon-search" style="color: white;"></i></button>
           </div>
         </div>
           </form>
@@ -24,17 +27,17 @@
         <div class="col-md-1"></div>
         <div class="col-md-5 col-sm-6">
           {% if locations %}
-          <h3 class="text-center">Locations</h3>
+          <h3 class="text-center mb-5 mt-5">Locations</h3>
           {% for location in locations %}
-          <a href="/location/{{location.id}}" class="badge badge-secondary" style="margin-left: 1%;"><i class="bi bi-geo-alt-fill"></i>&nbsp;{{location.name}}</a>
+          <a href="/location/{{location.id}}" class="btn mb-2 nav-tag" style="margin-left: 1%;"><i class="bi bi-geo-alt-fill"></i>&nbsp;{{location.name}}</a>
           {% endfor %}
           {% endif %}
         </div>
         <div class="col-md-5 col-sm-6">
           {% if categories %}
-          <h3 class="text-center">Categories</h3>
+          <h3 class="text-center mb-5 mt-5">Categories</h3>
           {% for category in categories %}
-          <a href="/category/{{category.id}}" class="badge badge-secondary"
+          <a href="/category/{{category.id}}" class="btn  mb-2 nav-tag"
             style="margin-left: 1%;">#{{category.name}}</a>
           {% endfor %}
           {% endif %}

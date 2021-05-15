@@ -14,7 +14,7 @@
   {% block styles %}
     {% bootstrap_css %}
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
   {% endblock %}
@@ -23,33 +23,7 @@
 <body>
 {% include "navbar.html" %}
 {% block content %}
-  <div class="modal fade" id="imageModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h5 class="modal-title" id="img-name"></h5>
-        </div>
-        <div class="modal-body" style="position: relative;" class="text-centre">
-          <a id="img-link" style="cursor: zoom-in;"><img alt="image" class="mod-img"></a>
-          <div class="details-content">
-            <div class="img-share" onclick="share()">
-              <a id="share" class="share-icon"><i class="fas fa-share-alt"></i></a>
-            </div>
-            <a id="img-cat" class="badge badge-secondary"></a>
-            <div class="details-meta">
-              <i class="fas fa-map-marker-alt"></i>&nbsp;<a id="img-loc" style="color: #333;"></a>
-              <time id="img-pos"></time>
-            </div>
-          </div>
-          <p id="img-desc"></p>
-          <input name="" id="copy-url"style="position:relative;left:15000px; height: 1px;">
-        </div>
-      </div>
-    </div>
-  </div>
+ 
 {% endblock %}
 
     {% block scripts %}
