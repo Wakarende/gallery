@@ -1,5 +1,26 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-<h1 class="text-center">Hello?</h1>
+{{ block.super }}
+<div class="container">
+  <div class="content" id="content">
+    <div>
+      {% for image in first %}
+        <img src="{{image.photo.url}}" alt="img" class=" img img-thumbnail" >
+      {% endfor %}
+    </div>
+    <div>
+      {% for image in second %}
+        <img src="{{image.photo.url}}" alt="img" class=" img img-thumbnail">
+      {% endfor %}
+    </div>
+    <div>
+      {% for image in third %}
+      <img src="{{image.photo.url}}" alt="img" class=" img img-thumbnail">
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<h1> Testing?</h1>
+
 {% endblock %}
