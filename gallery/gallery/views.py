@@ -55,3 +55,21 @@ def category(request, category_id):
     categories = Category.objects.all()
     title= "Not Found"
     return render(request, 'search.html',{"title":title,"message":message, "categories": categories})
+
+def location(request, location_id):
+  try:
+    location = Location.objects.get(id=location_id)
+    images = Image.filter_by_location(location)
+    arr= np.array(images) 
+    newarr = np.array_split(arr,3)
+    first = newarr[0]
+    second = newarr[1]
+    third = newarr[2]
+    message = location.name
+    title = location.name
+    return render(request, 'search.html',{"title":title, "message":message,"images": images,"first": first,"second": second,"third": third})
+  except ObjectDoesNotExist:
+    message = "NO ITEMS FOR THAT LOCATION"
+    locations = Location.objects.all()
+    title= "Not Found"
+    return render(request, 'search.html',{"title":title,"message":message, "locations": locations})
