@@ -74,10 +74,11 @@ def location(request, location_id):
     title= "Not Found"
     return render(request, 'search.html',{"title":title,"message":message, "locations": locations})
 
-def image(request,image_id):
+def one_image(request,image_id):
   try:
-    image=Images.Objects.get(id=image_id)
-    return render('image.html',{"image":image})
-  except:
+    image=Image.objects.get(id=image_id)
+    return render( request,'image.html',{"image":image})
+
+  except ObjectDoesNotExist:
     message="Image does not exist"
     return (request, 'image.html',{"message":message})

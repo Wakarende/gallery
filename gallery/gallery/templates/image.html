@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      {% if image %}
+      <h3 class="text-center">{{image.name}}</h3>
+      <div class="card">
+        <div class="cardbody">
+          <img src="{{image.photo.url}}" alt="" class="img img-thumbnail">
+        </div>
+        <div class="card-footer">
+          <div class="row">
+            <div class="col-md-4">
+              <p>{{image.category.name}}</p>
+            </div>
+            <div class="col-md-4">
+              <p><i class="bi bi-geo-alt-fill"></i>{{image.location.name}}</p>
+            </div>
+            <div class="col-md-4">
+              <a href=""><i class="bi bi-share-fill"></i></a>
+            </div>
+          </div>
+          <div>
+            <p>{{image.description}}</p>
+          </div>
+        </div>
+      </div>
+      {% else %}
+      <div class="text-center">
+        <img src="{% static 'img/not-found.png' %}" alt="not-found">
+        <p>{{message}}</p>
+        <p>Go back <a href="{% url 'home' %}">Home</a></p>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+{% endblock %}

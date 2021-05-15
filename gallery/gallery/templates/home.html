@@ -6,17 +6,23 @@
   <div class="content" id="content">
     <div>
       {% for image in first %}
+      <a href="/image/{{image.id}}">
         <img src="{{image.photo.url}}" alt="img" class=" img img-thumbnail" >
+      </a> 
       {% endfor %}
     </div>
     <div>
       {% for image in second %}
+      <a href="/image/{{image.id}}">
         <img src="{{image.photo.url}}" alt="img" class=" img img-thumbnail">
+      </a>
       {% endfor %}
     </div>
     <div>
       {% for image in third %}
-      <img src="{{image.photo.url}}" alt="img" class=" img img-thumbnail">
+      <a href="/image/{{image.id}}">
+        <img src="{{image.photo.url}}" alt="img" class=" img img-thumbnail">
+      </a>
       {% endfor %}
     </div>
   </div>
