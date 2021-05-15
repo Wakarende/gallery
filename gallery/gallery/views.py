@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Image,Category,Location
 import numpy as np
 from django.core.exceptions import ObjectDoesNotExist
+from django.conf import settings
 
 # Create your views here.
 def home(request):
@@ -36,3 +37,21 @@ def search_results(request):
   else:
     message = "You haven't searched for any category"
     return render(request, 'search.html',{"message":message})
+
+def category(request, category_id):
+  try:
+    category = Category.objects.get(id = category_id)
+    images = Image.search_image(category)
+    arr= np.array(images) 
+    newarr = np.array_split(arr,3)
+    first = newarr[0]
+    second = newarr[1]
+    third = newarr[2]
+    message = category.name
+    title = category.name
+    return render(request, 'search.html',{"title":title, "message":message,"images": images,"first": first,"second": second,"third": third})
+  except ObjectDoesNotExist:
+    message = "NO ITEMS UNDER CATEGORY " + search.upper()
+    categories = Category.objects.all()
+    title= "Not Found"
+    return render(request, 'search.html',{"title":title,"message":message, "categories": categories})
