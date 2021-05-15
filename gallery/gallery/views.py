@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Image,Category,Location
 import numpy as np
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def home(request):
