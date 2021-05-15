@@ -56,6 +56,9 @@ img {
 .icon-search{
   color: #00e6cb;
 }
+.nav-list{
+  margin-right: 10px
+}
 
 /* footer  */
 .social{
@@ -66,10 +69,10 @@ img {
   color: #00e6cb;
 }
 .links{
-  color: #00e6cb;
+  color: white;
   text-decoration: none;
 }
 .links:hover{
-  color: white;
+  color: #00e6cb;
   text-decoration: #00e6cb underline;
 }

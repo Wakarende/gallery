@@ -6,7 +6,9 @@
         <img src="{% static 'img/pic-logo.png' %}" alt="logo" style="width:150px; height:150px;padding-bottom: 0 !important;">
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/admin" class="bi-admin admin"><i class="bi bi-person-circle bi-admin"></i>Admin</a></li>
+          <li class="nav-list"><a href="/" class="bi-admin admin"><i class="bi bi-house-fill bi-admin"></i>Home</a></li>
+          <li class="nav-list"><a href="/admin" class="bi-admin admin"><i class="bi bi-person-circle bi-admin"></i>Admin</a></li>
+          
         </ul>
         <div class="navbar-right">
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" action="{% url 'search_results' %}">
@@ -45,4 +47,4 @@
         <div class="col-md-1"></div>
       </div>
     </div>
-  </div>
+  </div><hr style="color: white;">
