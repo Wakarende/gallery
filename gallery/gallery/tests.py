@@ -121,7 +121,7 @@ class ImageTest(TestCase):
     self.category.save_category()
     self.location= Location(name='nairobi')
     self.location.save_location()
-    self.image= Image(name='kitchen',description='description',photo='image.png',category=self.category,location=self.location)
+    self.image= Image(id='1', name='kitchen',description='description',photo='image.png',category=self.category,location=self.location)
 
   def tearDown(self):
     """
@@ -166,3 +166,18 @@ class ImageTest(TestCase):
     del_images=Image.objects.all()
     self.assertEqual(len(del_images),0)
 
+
+  def test_search_category(self):
+    '''
+    Tests whether image is retrieved by category
+    '''
+    self.location = Location(name='nairobi')
+    self.location.save_location()
+    self.category = Category(name='interior')
+    self.category.save_category()
+    self.image=Image(id=1,photo="image.png",name='kitchen',description='description',location=self.location,category=self.category)
+    self.image.save_image()
+    images=Image.search_image(self.category.id)
+    self.assertTrue(len(images)> 0)
+  
+  
