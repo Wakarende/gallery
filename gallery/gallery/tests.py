@@ -101,6 +101,16 @@ class CategoryTest(TestCase):
     self.fashion.delete_category()
     categories2 = Category.objects.all()
     self.assertEqual(len(categories2),1)
+  
+  def test_update_category(self):
+    """
+    Test that determines whether the category has been updated
+    """
+    self.fashion.save_category()
+    self.fashion.update_category(self.fashion.id, 'travel')
+    update = Category.objects.get(name='travel')
+    self.assertEqual(update.name, 'travel')
+
 
 
 
