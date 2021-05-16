@@ -181,6 +181,9 @@ class ImageTest(TestCase):
     self.assertTrue(len(images)> 0)
   
   def test_search_location(self):
+    """ 
+    Test where image is retrieved by location
+    """
     # self.location = Location(name='nairobi')
     self.location.save_location()
     self.category = Category(name='interior')
@@ -189,3 +192,16 @@ class ImageTest(TestCase):
     self.image.save_image()
     images = Image.filter_by_location("nairobi")
     self.assertTrue(len(images) > 0)
+  
+  def test_get_image_by_id(self):
+    '''
+    Test whether image is retrieved by id 
+    '''
+    self.location = Location(name='nairobi')
+    self.location.save_location()
+    self.category = Category(name='interior')
+    self.category.save_category()
+    self.image=Image(id=1,photo="image.png",name='kitchen',description='description',location=self.location,category=self.category)
+    self.image.save_image()
+    images = Image.get_image_by_id(self.image.id)
+    self.assertEqual(images.name, self.image.name)
