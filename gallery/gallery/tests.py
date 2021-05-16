@@ -180,4 +180,12 @@ class ImageTest(TestCase):
     images=Image.search_image(self.category.id)
     self.assertTrue(len(images)> 0)
   
-  
+  def test_search_location(self):
+    # self.location = Location(name='nairobi')
+    self.location.save_location()
+    self.category = Category(name='interior')
+    self.category.save_category()
+    self.image=Image(id=1,photo="image.png",name='kitchen',description='description',location=self.location,category=self.category)
+    self.image.save_image()
+    images = Image.filter_by_location("nairobi")
+    self.assertTrue(len(images) > 0)
