@@ -145,7 +145,24 @@ class ImageTest(TestCase):
     images = Image.objects.all()
     self.assertTrue(len(images)>0)
   
+  def tearDown(self):
+    """
+    Clears Database after each test
+    """
+    Image.objects.all().delete()
+    Category.objects.all().delete()
+    Location.objects.all().delete()
 
 
+  def test_delete_image(self):
+    """
+    Test whether image is deleted
+    """
 
+    self.image.save_image()
+    images=Image.objects.all()
+    self.assertEqual(len(images),1)
+    self.image.delete_image()
+    del_images=Image.objects.all()
+    self.assertEqual(len(del_images),0)
 
