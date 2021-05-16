@@ -90,7 +90,17 @@ class CategoryTest(TestCase):
     categories = Category.objects.all()
     self.assertTrue(len(categories) == 2)
 
-    
+  def test_delete_category(self):
+    """
+    Test whether category is deleted
+    """
+    self.fashion.save_category()
+    self.games.save_category()
+    categories1 = Category.objects.all()
+    self.assertEqual(len(categories1),2)
+    self.fashion.delete_category()
+    categories2 = Category.objects.all()
+    self.assertEqual(len(categories2),1)
 
 
 
