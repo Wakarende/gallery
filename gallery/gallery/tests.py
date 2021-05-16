@@ -1,6 +1,6 @@
 from django.test import TestCase
 from .models import Location,Category,Image
-from django.test import override_settings
+
 
 # Create your tests here.
 class LocationTest(TestCase):
@@ -115,33 +115,35 @@ class CategoryTest(TestCase):
 
 
 
-# class ImageTest(TestCase):
-#   def setup(self):
-#     self.new_category= Category(name='interior')
-#     self.new_location= Location(name='nairobi')
-#     self.new_image= Image(name='kitchen',description='description',photo='image.png',category='interior',location='nairobi')
+class ImageTest(TestCase):
+  def setUp(self):
+    self.category= Category(name='interior')
+    self.category.save_category()
+    self.location= Location(name='nairobi')
+    self.location.save_location()
+    self.image= Image(name='kitchen',description='description',photo='image.png',category=self.category,location=self.location)
 
-#   def tearDown(self):
-#     """
-#     Clears Database after each test
-#     """
-#     Image.objects.all().delete()
-#     Category.objects.all().delete()
-#     Location.objects.all().delete()
+  def tearDown(self):
+    """
+    Clears Database after each test
+    """
+    Image.objects.all().delete()
+    Category.objects.all().delete()
+    Location.objects.all().delete()
   
-#   def test_image_instance(self):
-#     """
-#     test that determines whether a new image created is an instance of the Image class
-#     """
-#     self.assertTrue(isinstance(self.new_image, Image))
+  def test_image_instance(self):
+    """
+    test that determines whether a new image created is an instance of the Image class
+    """
+    self.assertTrue(isinstance(self.image, Image))
 
-#   def test_save_image(self):
-#     """
-#     Test whether new image is added to the db
-#     """
-#     self.new_image.save_image()
-#     all_objects = Image.objects.all()
-#     self.assertTrue(len(all_objects)>0)
+  def test_save_image(self):
+    """
+    Test whether new image is added to the db
+    """
+    self.image.save_image()
+    images = Image.objects.all()
+    self.assertTrue(len(images)>0)
   
 
 
