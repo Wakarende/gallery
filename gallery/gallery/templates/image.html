@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<!-- Copy to clipboard  -->
+<script>
+  function CopyFunction() {
+    var copyText = document.getElementById("imagelink");
+    copyText.select();
+    document.execCommand("copy");
+    alert("Link " + copyText.value);
+}
+</script>
+
+<!-- Single Img  -->
 <div  class="row" style="align-content: center; margin-left: 3%; margin-right: 3%; margin-top: 6rem;">
   <div class="col-md-2"></div>
   <div class="col-md-2"></div>
@@ -9,7 +20,12 @@
       <div class="card mb-5 bg-transparent border-white" style="width: 25rem;" id="border">
         <img class="img card-img-top" id={{image.name}} src="{{image.photo.url}}" style="height: 380px; width: 380px;">
         <div class="card-header header text-center" style="display: flex; justify-content: space-evenly;"><p style="color:#00e6cb;">{{image.category}}</p>
-        <button class="share-btn" style="background: transparent; padding-right: 5px;  padding-left: 5px; border: solid 1px white;"><i class="bi bi-share-fill" style="color:#00e6cb;"></i></button>
+          <div class="image-share" >
+            <a onclick="CopyFunction()">
+              <i class="bi bi-clipboard" style="color:#00e6cb;"></i> 
+            </a>
+            <input id="imagelink" value="{{image.photo.url}}" type="hidden" name="">
+          </div>
         </div>
         <div class="card-body"> 
           <h5 class="card-title">{{image.name}}</h5>
@@ -30,6 +46,7 @@
   </div>
   <div class="col-md-2"></div>
 </div>
+
 <!-- Footer  -->
 <hr style="color: white;">
  <footer class="footer">

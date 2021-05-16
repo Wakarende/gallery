@@ -1,5 +1,6 @@
-function copy() {
-  $("#copy-url").select()
-  document.execCommand('copy');
-  alert("Image link copied to clipboard")
+function CopyFunction() {
+  var copyText = document.getElementById("imagelink");
+  copyText.select();
+  document.execCommand("copy");
+  alert("Copied the text: " + copyText.value);
 }
