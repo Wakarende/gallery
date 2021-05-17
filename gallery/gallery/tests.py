@@ -60,6 +60,7 @@ class LocationTest(TestCase):
     self.nakuru.save_location()
     self.assertEqual(len(Location.display_all_locations()), 2)
 
+
 class CategoryTest(TestCase):
   def setUp(self):
     """
@@ -110,9 +111,6 @@ class CategoryTest(TestCase):
     self.fashion.update_category(self.fashion.id, 'travel')
     update = Category.objects.get(name='travel')
     self.assertEqual(update.name, 'travel')
-
-
-
 
 
 class ImageTest(TestCase):
@@ -205,3 +203,4 @@ class ImageTest(TestCase):
     self.image.save_image()
     images = Image.get_image_by_id(self.image.id)
     self.assertEqual(images.name, self.image.name)
+
